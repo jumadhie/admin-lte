@@ -23,12 +23,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <section className={style.layout}>
+        {/* <section className={style.layout}>
           <Sidebar />
           <div style={{ width: "100%" }}>
             <Header />
             <div style={{ padding: 24 }}>{children}</div>
           </div>
+        </section> */}
+        <Sidebar />
+        <section className={styles.main}>
+          <Header />
+          {children}
         </section>
       </body>
     </html>

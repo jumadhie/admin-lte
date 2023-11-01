@@ -105,3 +105,14 @@ a {
     color-scheme: dark;
   }
 }
+
+[data-collapse="true"] .sidebarlabel,
+.sidebar-collapse,
+.arrow {
+  display: none;
+}
+
+[data-collapse="false"] .arrow,
+.tes {
+  display: unset;
+}
