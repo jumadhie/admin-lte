@@ -1,4 +1,5 @@
 "use client";
+import { useGlobalContext } from "@/context/store";
 import style from "./../../styles/style.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,48 +9,58 @@ import {
   FaChevronDown,
   FaGrinHearts,
   FaJsSquare,
-  FaBars,
+  FaStream,
 } from "react-icons/fa";
 
 const Sidebar = () => {
   const router = usePathname();
-  const [collapse, setCollapse] = useState(false);
+  // const [collapse, setCollapse] = useState(false);
+  const { userId, collapse, setCollapse } = useGlobalContext();
+
+  const toggle = () => {
+    setCollapse(!collapse);
+  };
 
   return (
-    <aside className={`tes ${style.sidebar}`} data-collapse={collapse}>
+    <aside
+      className={`sidebar ${collapse ? "minimaze" : ""}`}
+      data-collapse={collapse}
+    >
       <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: 24,
-        }}
+        className={`${collapse ? "sidebar-logo-small" : "sidebar-logo-large"}`}
       >
-        <h4>logo</h4>
-        <span
-          onClick={() => {
-            setCollapse(!collapse);
-          }}
-          style={{ cursor: "pointer" }}
-        >
-          <FaBars size={"17"} />
+        {!collapse ? (
+          <div className="logo">
+            <h4>logo</h4>
+          </div>
+        ) : null}
+
+        <span onClick={toggle} style={{ cursor: "pointer" }}>
+          <FaStream size={"17"} />
         </span>
       </div>
       <ul>
-        <li className={router === "/" ? `${style.active}` : `${style.link}`}>
+        <li className={router === "/" ? `sidebar-item active` : `sidebar-item`}>
           <Link href="/">
-            <FaThLarge size={"17"} />
+            <span className="icon-sidebar">
+              <FaThLarge size={"17"} />
+            </span>
             <span className="sidebarlabel">home</span>
-            <FaChevronDown className="arrow" size={"15"} />
+            <FaChevronDown className="arrow" size={"12"} />
           </Link>
         </li>
 
         <li
-          className={router === "/user" ? `${style.active}` : `${style.link}`}
+          className={
+            router === "/user" ? `sidebar-item active` : `sidebar-item`
+          }
         >
           <Link href="/user">
-            <FaGrinHearts size={"17"} />
+            <span className="icon-sidebar">
+              <FaGrinHearts size={"17"} />
+            </span>
             <span className="sidebarlabel">User</span>
-            <FaChevronDown className="arrow" size={"15"} />
+            <FaChevronDown className="arrow" size={"12"} />
           </Link>
         </li>
         <div
@@ -71,13 +82,62 @@ const Sidebar = () => {
         </div>
         <li
           className={
-            router === "/setting" ? `${style.active}` : `${style.link}`
+            router === "/setting" ? `sidebar-item active` : `sidebar-item`
           }
         >
           <Link href="/setting">
-            <FaJsSquare size={"17"} />
+            <span className="icon-sidebar">
+              <FaJsSquare size={"17"} />
+            </span>
             <span className="sidebarlabel">Setting</span>
-            {/* <FaChevronDown size={"15"} /> */}
+          </Link>
+        </li>
+        <li
+          className={
+            router === "/setting" ? `sidebar-item active` : `sidebar-item`
+          }
+        >
+          <Link href="/setting">
+            <span className="icon-sidebar">
+              <FaJsSquare size={"17"} />
+            </span>
+            <span className="sidebarlabel">Setting</span>
+          </Link>
+        </li>
+        <li
+          className={
+            router === "/setting" ? `sidebar-item active` : `sidebar-item`
+          }
+        >
+          <Link href="/setting">
+            <span className="icon-sidebar">
+              <FaJsSquare size={"17"} />
+            </span>
+            <span className="sidebarlabel">Setting</span>
+          </Link>
+        </li>
+        <li
+          className={
+            router === "/setting" ? `sidebar-item active` : `sidebar-item`
+          }
+        >
+          <Link href="/setting">
+            <span className="icon-sidebar">
+              <FaJsSquare size={"17"} />
+            </span>
+            <span className="sidebarlabel">Setting</span>
+          </Link>
+        </li>
+        <li
+          className={
+            router === "/setting" ? `sidebar-item active` : `sidebar-item`
+          }
+        >
+          <Link href="/setting">
+            <span className="icon-sidebar">
+              <FaJsSquare size={"17"} />
+            </span>
+            <span className="sidebarlabel">Setting</span>
           </Link>
         </li>
       </ul>

@@ -2,9 +2,9 @@ import styles from "./../page.module.css";
 
 const User = () => {
   return (
-    <main className={styles.main}>
+    <section>
       <h1>halaman user</h1>
-    </main>
+    </section>
   );
 };
 

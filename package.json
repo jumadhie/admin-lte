@@ -18,6 +18,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "daisyui": "^3.9.4",
     "typescript": "^5"
   }
 }

@@ -1,17 +1,11 @@
+"use client";
+import { useGlobalContext } from "@/context/store";
+
 const Header = () => {
+  const { collapse } = useGlobalContext();
+
   return (
-    <div
-      style={{
-        // background: "white",
-        // width: "100%",
-        padding: "16px 12px",
-        display: "flex",
-        justifyContent: "space-between",
-        position: "fixed",
-        width: "100%",
-        background: "white",
-      }}
-    >
+    <div className={`header-top ${collapse ? "header-minimaze" : ""}`}>
       <div>Headers</div>
       <div>Account</div>
     </div>

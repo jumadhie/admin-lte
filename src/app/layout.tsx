@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import style from "./../styles/style.module.css";
 import Sidebar from "@/layout/sidebar/sidebar";
 import Header from "@/layout/header/header";
-
-import styles from "./page.module.css";
-
+import { GlobalContextProvider } from "@/context/store";
+import Main from "@/layout/main/main";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,22 +17,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const router = useRouter();
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <section className={style.layout}>
+        <GlobalContextProvider>
           <Sidebar />
-          <div style={{ width: "100%" }}>
+          <Main>
             <Header />
-            <div style={{ padding: 24 }}>{children}</div>
-          </div>
-        </section> */}
-        <Sidebar />
-        <section className={styles.main}>
-          <Header />
-          {children}
-        </section>
+            <section className="content">{children}</section>
+            {/* <Main children={children} /> */}
+          </Main>
+        </GlobalContextProvider>
       </body>
     </html>
   );

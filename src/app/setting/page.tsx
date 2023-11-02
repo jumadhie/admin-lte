@@ -2,9 +2,9 @@ import styles from "./../page.module.css";
 
 const Setting = () => {
   return (
-    <main className={styles.main}>
+    <section>
       <h1>halaman setting</h1>
-    </main>
+    </section>
   );
 };
 

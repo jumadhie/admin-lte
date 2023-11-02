@@ -87,12 +87,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #e7e7e7;
 }
 
 a {
@@ -108,11 +103,125 @@ a {
 
 [data-collapse="true"] .sidebarlabel,
 .sidebar-collapse,
-.arrow {
+.arrow,
+.logo {
   display: none;
 }
 
 [data-collapse="false"] .arrow,
-.tes {
+.logo {
   display: unset;
+}
+
+.header-top {
+  background-color: white;
+  padding: 16px 12px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 250px;
+  right: 0;
+}
+
+.header-minimaze {
+  left: 74px !important;
+  transition: width 2s;
+}
+.main-minimaze {
+  margin-left: 74px !important;
+}
+.minimaze {
+  min-width: 70px !important;
+}
+
+.main {
+  margin-left: 250px;
+  min-height: 100%;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  background-color: white;
+  min-width: 250px;
+  padding: 16px;
+}
+
+.sidebar-logo-large {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.sidebar-logo-small {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.sidebar-item {
+  margin-bottom: 6px;
+  /* height: 40px; */
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar-item:hover {
+  margin-bottom: 6px;
+  background-color: #01017012;
+  border-radius: 4px;
+}
+
+.sidebarlabel {
+  margin-left: 12px;
+  flex: 1;
+}
+.sidebar-item a {
+  display: flex;
+  padding: 4px 8px;
+  border-radius: 4px;
+  align-items: center;
+  width: 100%;
+}
+.icon-sidebar {
+  height: 26px;
+  width: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  background-color: #01017012;
+  color: #01018d;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.active::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 100%;
+  background: #01018d;
+  left: -14px;
+  position: absolute;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.content {
+  margin-top: 52px;
+  height: 100%;
+  padding: 24px;
 }
