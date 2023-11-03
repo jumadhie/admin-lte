@@ -1,9 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import styles from "./page.module.css";
 import { useGlobalContext } from "@/context/store";
-import { useEffect } from "react";
 
 export default function Home() {
   const { userId, setUserId, data, setData } = useGlobalContext();

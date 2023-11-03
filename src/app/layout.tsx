@@ -25,7 +25,6 @@ export default function RootLayout({
           <Main>
             <Header />
             <section className="content">{children}</section>
-            {/* <Main children={children} /> */}
           </Main>
         </GlobalContextProvider>
       </body>

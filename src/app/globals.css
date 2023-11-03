@@ -122,22 +122,25 @@ a {
   top: 0;
   left: 250px;
   right: 0;
+  transition: 0.5s;
 }
 
 .header-minimaze {
   left: 74px !important;
-  transition: width 2s;
+  transition: 0.4s;
 }
 .main-minimaze {
   margin-left: 74px !important;
 }
 .minimaze {
   min-width: 70px !important;
+  transition: 0.5s;
 }
 
 .main {
   margin-left: 250px;
   min-height: 100%;
+  transition: 0.5s;
 }
 
 .sidebar {
@@ -146,6 +149,7 @@ a {
   background-color: white;
   min-width: 250px;
   padding: 16px;
+  transition: 0.5s;
 }
 
 .sidebar-logo-large {
@@ -164,7 +168,7 @@ a {
 
 .sidebar-item {
   margin-bottom: 6px;
-  /* height: 40px; */
+  transition: 0.3s;
 }
 
 .sidebar ul {
@@ -173,8 +177,10 @@ a {
 
 .sidebar-item:hover {
   margin-bottom: 6px;
-  background-color: #01017012;
+  /* background-color: #3b41cf; */
   border-radius: 4px;
+  color: #3b41cf;
+  /* transition: 0.5s; */
 }
 
 .sidebarlabel {
@@ -197,8 +203,19 @@ a {
 }
 
 .active {
-  background-color: #01017012;
-  color: #01018d;
+  background-color: #3b41cf;
+  color: #fff;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+.active:hover {
+  background-color: #3b41cf;
+  color: #fff;
   border-radius: 4px;
   margin-bottom: 6px;
   position: relative;
@@ -213,7 +230,7 @@ a {
   display: block;
   width: 4px;
   height: 100%;
-  background: #01018d;
+  background: #3b41cf;
   left: -14px;
   position: absolute;
   border-top-right-radius: 10px;
@@ -224,4 +241,33 @@ a {
   margin-top: 52px;
   height: 100%;
   padding: 24px;
+}
+
+.header-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.avatar {
+  height: 28px;
+  width: 28px;
+  border-radius: 50px;
+  background-color: #3b41cf;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100px;
+}
+
+.title-header {
+  margin-right: 6px;
 }
