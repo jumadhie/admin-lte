@@ -102,7 +102,6 @@ a {
 }
 
 [data-collapse="true"] .sidebarlabel,
-.sidebar-collapse,
 .arrow,
 .logo {
   display: none;
@@ -148,7 +147,7 @@ a {
   height: 100%;
   background-color: white;
   min-width: 250px;
-  padding: 16px;
+  padding: 13px;
   transition: 0.5s;
 }
 
@@ -168,7 +167,7 @@ a {
 
 .sidebar-item {
   margin-bottom: 6px;
-  transition: 0.3s;
+  /* transition: 0.3s; */
 }
 
 .sidebar ul {
@@ -177,7 +176,7 @@ a {
 
 .sidebar-item:hover {
   margin-bottom: 6px;
-  /* background-color: #3b41cf; */
+  background-color: #f0f3f7;
   border-radius: 4px;
   color: #3b41cf;
   /* transition: 0.5s; */
@@ -231,10 +230,39 @@ a {
   width: 4px;
   height: 100%;
   background: #3b41cf;
-  left: -14px;
+  left: -13px;
   position: absolute;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.sidebar-collapse {
+  /* padding: 0px 0px 0px 42px; */
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.sidebar-collapse ul {
+  padding-inline-start: 36px;
+}
+
+.sidebar-collapse ul li a {
+  padding: 6px 10px;
+  font-size: 14px;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.sidebar-collapse ul li a:hover {
+  padding: 6px 10px;
+  font-size: 14px;
+  background-color: #f0f3f7;
+}
+
+.active-collapse {
+  font-size: 14px;
+  color: #3b41cf;
+  font-weight: bold;
 }
 
 .content {
