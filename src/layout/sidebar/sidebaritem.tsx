@@ -2,11 +2,18 @@
 import { useGlobalContext } from "@/context/store";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const SidebarItem = ({ items }: any) => {
+  const llll = useRef(null);
   const router = usePathname();
+  const activeparent = [];
+
+  for (const key in items.subMenu) {
+    activeparent.push(items.subMenu[key].path);
+  }
+
   const { collapse } = useGlobalContext();
   const [toggleCollapse, setToggleCollapse] = useState(false);
 
@@ -15,7 +22,9 @@ const SidebarItem = ({ items }: any) => {
       <ul>
         <li
           className={
-            router === `${items.path}` ? `sidebar-item active` : `sidebar-item`
+            activeparent.includes(router)
+              ? `sidebar-item active`
+              : `sidebar-item`
           }
         >
           <Link href={`#`} onClick={() => setToggleCollapse(!toggleCollapse)}>
@@ -31,7 +40,7 @@ const SidebarItem = ({ items }: any) => {
         {!collapse && (
           <div className="sidebar-collapse">
             {toggleCollapse && (
-              <ul>
+              <ul ref={llll}>
                 {items.subMenu.map((sub: any, i: any) => (
                   <li
                     className={

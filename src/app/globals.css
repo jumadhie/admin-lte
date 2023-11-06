@@ -114,7 +114,7 @@ a {
 
 .header-top {
   background-color: white;
-  padding: 16px 12px;
+  padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -125,11 +125,11 @@ a {
 }
 
 .header-minimaze {
-  left: 74px !important;
+  left: 70px !important;
   transition: 0.4s;
 }
 .main-minimaze {
-  margin-left: 74px !important;
+  margin-left: 70px !important;
 }
 .minimaze {
   min-width: 70px !important;
@@ -148,7 +148,12 @@ a {
   background-color: white;
   min-width: 250px;
   padding: 13px;
-  transition: 0.5s;
+  /* transition: 0.5s; */
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .sidebar-logo-large {
@@ -179,7 +184,6 @@ a {
   background-color: #f0f3f7;
   border-radius: 4px;
   color: #3b41cf;
-  /* transition: 0.5s; */
 }
 
 .sidebarlabel {
@@ -211,6 +215,7 @@ a {
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
+  transition: 0.5s;
 }
 .active:hover {
   background-color: #3b41cf;
