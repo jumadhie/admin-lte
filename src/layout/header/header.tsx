@@ -3,6 +3,7 @@
 import { FaChevronDown } from "react-icons/fa";
 import { useGlobalContext } from "@/context/store";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 
 const Header = () => {
   const { collapse } = useGlobalContext();
@@ -19,7 +20,9 @@ const Header = () => {
             height={500}
           />
         </div>
-        <span className="title-header">Jhon Doe</span>
+        <span className="title-header" onClick={() => signIn()}>
+          Jhon Doe
+        </span>
         <FaChevronDown size={"14"} />
       </div>
     </div>
