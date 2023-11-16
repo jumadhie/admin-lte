@@ -4,26 +4,50 @@ import { Fragment, Suspense, useEffect, useState } from "react";
 import Loading from "./loading";
 
 const User = () => {
+  const [er, setErr] = useState("");
+
+  const formatDate = (param: any) => {
+    const fulldate = new Date(param);
+    const date = fulldate.getDate();
+    const month = fulldate.getMonth() + 1;
+    const year = fulldate.getFullYear();
+    const joindate = date + "-" + month + "-" + year;
+
+    return joindate;
+  };
   const getData = async () => {
-    // "use server";
-    const data = await fetch("http://localhost:4000/api/v1/users");
-    const posts = await data.json();
-    setDataUser(posts.data);
+    try {
+      const data = await fetch("http://localhost:4000/api/v1/users");
+      const posts = await data.json();
+      console.log(posts.data);
+      setDataUser(posts.data);
+    } catch (error) {
+      console.info("ada masalah dari server bro");
+      setErr("eror bro");
+    }
   };
   const [datauser, setDataUser] = useState([]);
 
   const addData = async () => {
-    const url = await fetch("http://localhost:4000/api/v1/users", {
-      method: "POST",
-    });
+    try {
+      const url = await fetch("http://localhost:4000/api/v1/users", {
+        method: "POST",
+      });
+    } catch (error) {
+      console.log("eror tambah data", error);
+    }
 
     getData();
   };
 
   const remove = async (d: number) => {
-    const url = await fetch(`http://localhost:4000/api/v1/users/${d}`, {
-      method: "DELETE",
-    });
+    try {
+      const url = await fetch(`http://localhost:4000/api/v1/users/${d}`, {
+        method: "DELETE",
+      });
+    } catch (error) {
+      console.log("eror hapus data", error);
+    }
     getData();
   };
 
@@ -47,17 +71,18 @@ const User = () => {
           <Button title="Perbaharui Data" onClick={refresh} />
         </div>
         <div className="container-table">
+          {er}
           <table className="table">
             <thead>
               <tr>
                 <th>
                   <input type="checkbox" name="" id="" />
                 </th>
-                <th>id</th>
+                <th>Nik</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
-                <th>Alamat</th>
+                <th>Tanggal Bergabung</th>
                 <th></th>
               </tr>
             </thead>
@@ -69,13 +94,13 @@ const User = () => {
                       <td>
                         <input type="checkbox" name="" id="" />
                       </td>
-                      <td>{d.id}</td>
+                      <td>{d.nik}</td>
                       <td>{d.nama}</td>
-                      <td>mail@amilc.om</td>
-                      <td>09847348738</td>
+                      <td>{d.email}</td>
+                      <td>{d.phone_number}</td>
+                      {/* <td>{d.join_date}</td> */}
                       <td>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ipsum repudiandae, numquam provident hi
+                        {d.join_date === null ? "-" : formatDate(d.join_date)}
                       </td>
                       <td>
                         <button onClick={() => remove(d.id)}>hapus</button>
